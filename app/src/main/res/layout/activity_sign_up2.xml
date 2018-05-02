@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context="com.example.admin.myapplication.SignUpActivity">
+    tools:context="com.example.admin.myapplication.SignUp2Activity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/signup_bg"
-        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="50dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         >
         <TextView
-            android:id="@+id/nameHead"
+            android:id="@+id/blood_pressure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="Blood Pressure"
             android:textStyle="bold"
             android:textSize="16dp"
             android:paddingLeft="8dp"
@@ -35,42 +35,23 @@
             android:textSize="14dp"
             android:textColorHighlight="#0277BD"
             android:maxLines="1"
-            android:hint="eg: Tony"/>
+            android:inputType="phone"
+            android:hint="Your blood pressure"/>
 
         <TextView
-            android:id="@+id/mailHead"
+            android:id="@+id/diebities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="Do you have a Diebities?"
             android:textStyle="bold"
             android:textSize="16dp"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
             android:textColor="#424242"/>
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="eg: abc@gmail.com"
-            android:maxLines="1"
-            android:inputType="textEmailAddress"
-
-            android:textColorHighlight="#0277BD"
-            android:textSize="14dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gender"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:paddingLeft="8dp"
-            android:paddingTop="8dp"
-            android:textColor="#424242"/>
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/confirm"
             android:layout_width="match_parent"
             android:layout_height="36dp"
             android:spinnerMode="dropdown"
@@ -80,41 +61,34 @@
         </Spinner>
 
         <TextView
-            android:id="@+id/bloodHead"
+            android:id="@+id/mailHead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Blood Group"
+            android:text="Do you have a cronic disease?"
             android:textStyle="bold"
             android:textSize="16dp"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
             android:textColor="#424242"/>
 
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:spinnerMode="dropdown"
-            android:backgroundTint="#0277BD"
-            android:foregroundTint="#0277BD"
-            />
-        <Button
-            android:id="@+id/button"
+        <EditText
+            android:id="@+id/cronic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emergency Contact "
-            android:textAllCaps="false"
-            android:background="@drawable/contacts"
-            android:onClick="onClickSelectContact"
-            android:layout_margin="8dp"
-            android:textColor="#FFFFFF"
-            />
+            android:hint="Cronic disease(if any)"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
+
+            android:textColorHighlight="#0277BD"
+            android:textSize="14dp" />
+
+
 
         <Button
             android:id="@+id/next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next"
+            android:text="Finish"
             android:textAllCaps="false"
             android:background="@drawable/next"
             android:layout_marginBottom="10dp"

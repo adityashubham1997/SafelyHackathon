@@ -181,7 +181,7 @@ public class SignUpActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                Intent intent = new Intent(SignUpActivity.this, SignUp2Activity.class);
                 intent.putExtra("name", username.getText().toString());
                 intent.putExtra("email", email.getText().toString());
                 intent.putExtra("blood", blood_group.getSelectedItem().toString());
