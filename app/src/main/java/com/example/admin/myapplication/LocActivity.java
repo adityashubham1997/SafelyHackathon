@@ -1,7 +1,9 @@
 package com.example.admin.myapplication;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
@@ -44,6 +46,8 @@ public class LocActivity extends AppCompatActivity {
     private String mLongitudeLabel;
     private TextView mLatitudeText;
     private TextView mLongitudeText;
+    String phone;
+    String DEFAULT = "N/A";
 
 
     @Override
@@ -88,8 +92,10 @@ public class LocActivity extends AppCompatActivity {
                             mLastLocation = task.getResult();
 
                             Intent intent= new Intent(LocActivity.this,EmargencyResponseActivity.class);
+                            getData2();
 
-String phone = getIntent().getStringExtra("number");                            Uri uri=Uri.parse("Hey, I am in trouble at http://maps.google.com/?q="+Double.toString(mLastLocation.getLatitude())+","+Double.toString(mLastLocation.getLongitude()));
+
+                            Uri uri=Uri.parse("Hey, I am in trouble at http://maps.google.com/?q="+Double.toString(mLastLocation.getLatitude())+","+Double.toString(mLastLocation.getLongitude()));
                             SmsManager smsManager = SmsManager.getDefault();
                             smsManager.sendTextMessage(phone, null, uri.toString(), null, null);
                             if (ActivityCompat.checkSelfPermission(LocActivity.this,
@@ -102,9 +108,6 @@ String phone = getIntent().getStringExtra("number");                            
                             mLatitudeText.setText(String.format(Locale.ENGLISH, "%s: %f",
                                     mLatitudeLabel,
                                     mLastLocation.getLatitude()));
-                            mLongitudeText.setText(String.format(Locale.ENGLISH, "%s: %f",
-                                    mLongitudeLabel,
-                                    mLastLocation.getLongitude()));
                         } else {
                             Intent intent= new Intent(LocActivity.this,EmargencyResponseActivity.class);
                             startActivity(intent);
@@ -236,6 +239,11 @@ String phone = getIntent().getStringExtra("number");                            
     public void onBackPressed() {
         Intent intent= new Intent(LocActivity.this,EmergencyActActivity.class);
         startActivity(intent);
+    }
+    private void getData2()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        phone = sharedPreferences.getString("emergencycontactnumber",DEFAULT);
     }
 
 

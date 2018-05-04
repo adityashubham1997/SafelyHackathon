@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Fri May 04 05:08:57 IST 2018
+0.baseType=DIRECTORY
+0.base=/Users/ankankumar/Desktop/Safely-Road/app/build/intermediates/assets/debug
+0.path=fonts/avenir-black.ttf
+0.set=ASSET
+count=1

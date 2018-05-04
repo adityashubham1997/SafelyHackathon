@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Safly</string>
+    <string name="app_name">Safely</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -28,5 +28,6 @@
     <string name="phone_label">Phone Number</string>
 
     <string name="logout_label">Log Out</string>
+    <string name="edit_label">Edit Details</string>
 
 </resources>

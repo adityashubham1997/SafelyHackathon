@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10sp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Automatic"
+    tools:showIn="@layout/automatic_main">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/first_layout"
+                android:layout_width = "match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10sp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <TextView
+                    android:id="@+id/xValue"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/yValue"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/zValue"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/acceleration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/first_layout"
+                android:padding="10sp"/>
+
+            <LinearLayout
+                android:id="@+id/third_layout"
+                android:layout_width = "match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/acceleration"
+                android:layout_marginTop="10sp"
+                android:orientation="horizontal"
+                android:padding="30sp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <TextView
+                    android:id="@+id/xGyroValue"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/yGyroValue"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/zGyroValue"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fourth_layout"
+                android:layout_width = "match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/third_layout"
+                android:layout_marginTop="10sp"
+                android:orientation="horizontal"
+                android:padding="30sp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <TextView
+                    android:id="@+id/xMagnoValue"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp"
+                    />
+
+                <TextView
+                    android:id="@+id/yMagnoValue"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp"
+                    />
+
+                <TextView
+                    android:id="@+id/zMagnoValue"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fifth_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fourth_layout"
+                android:layout_marginTop="10sp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/pressure"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/temp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/humi"
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/microphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fifth_layout"
+                android:padding="10sp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

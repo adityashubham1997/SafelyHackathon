@@ -10,14 +10,20 @@ public class DatabaseStuff {
     private String email;
     private String Emergency_Contact_number;
     private String Contact_number_user;
+    private String Diabetes_Condition;
+    private String B_P_Condition;
+    private String Chronic_Diseases;
 
-    public DatabaseStuff(String name, String email, String sex,String blood_group,String Emergency_Contact_number, String Contact_number_user) {
+    public DatabaseStuff(String name, String email, String sex,String blood_group,String Emergency_Contact_number, String Contact_number_user,String Diabetes_Condition,String B_P_Condition,String Chronic_Diseases ) {
         this.email = email;
         this.name = name;
         this.sex = sex;
         this.blood_group=blood_group;
         this.Emergency_Contact_number = Emergency_Contact_number;
         this.Contact_number_user = Contact_number_user;
+        this.Diabetes_Condition = Diabetes_Condition;
+        this.B_P_Condition = B_P_Condition;
+        this.Chronic_Diseases =Chronic_Diseases;
     }
 
     public String getName() {
@@ -63,6 +69,26 @@ public class DatabaseStuff {
     }
     public void setContact_number_user(String name) {
         this.Contact_number_user = name;
+    }
+
+    public String getDiabetes_Condition() {
+        return Diabetes_Condition;
+    }
+    public void setDiabetes_Condition(String name) {
+        this.Diabetes_Condition= name;
+    }
+
+    public String getB_P_Condition() {
+        return B_P_Condition;
+    }
+    public void setB_P_Condition(String name) {
+        this.B_P_Condition = name;
+    }
+    public String getChronic_Diseases() {
+        return Chronic_Diseases;
+    }
+    public void setChronic_Diseases(String name) {
+        this.Chronic_Diseases = name;
     }
 }
 

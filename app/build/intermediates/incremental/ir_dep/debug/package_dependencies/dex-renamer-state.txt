@@ -1,0 +1,4 @@
+#Fri May 04 05:25:36 IST 2018
+base.0=/Users/ankankumar/Desktop/Safely-Road/app/build/intermediates/transforms/dexMerger/debug/146
+path.0=classes.dex
+renamed.0=classes.dex

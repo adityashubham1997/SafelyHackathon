@@ -61,7 +61,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void launchEmergencyActivity()
     {
+        Intent intent1 = new Intent(LoginActivity.this, com.example.admin.myapplication.Automatic.class);
         Intent intent = new Intent(LoginActivity.this, com.example.admin.myapplication.MainActivity.class);
+        startActivity(intent1);
         startActivity(intent);
     }
 

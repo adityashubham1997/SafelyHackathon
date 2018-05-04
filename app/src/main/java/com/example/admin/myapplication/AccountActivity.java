@@ -59,7 +59,7 @@ nameText=(TextView)findViewById(R.id.NameText);
                     String formattedPhoneNumber = formatPhoneNumber(phoneNumber.toString());
                     info.setText(formattedPhoneNumber);
                     infoLabel.setText(R.string.phone_label);
-                    setData();
+                    getData();
                     nameText.setText(name);
                     bloodGroup.setText(blood);
                     id.setText(email);
@@ -78,7 +78,7 @@ nameText=(TextView)findViewById(R.id.NameText);
         });
     }
 
-    private void setData()
+    private void getData()
     {
         SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         name = sharedPreferences.getString("name",DEFAULT);
@@ -94,7 +94,12 @@ nameText=(TextView)findViewById(R.id.NameText);
         AccountKit.logOut();
         launchLoginActivity();
     }
-
+    public void onEditDetails(View view)
+    {
+        Intent intent = new Intent(this, com.example.admin.myapplication.SignUpActivity.class);
+        startActivity(intent);
+        finish();
+    }
     private void launchLoginActivity() {
         Intent intent = new Intent(this, com.example.admin.myapplication.LoginActivity.class);
         startActivity(intent);

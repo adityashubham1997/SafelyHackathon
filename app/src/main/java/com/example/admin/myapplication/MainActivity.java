@@ -2,23 +2,25 @@ package com.example.admin.myapplication;
 
 
 import android.Manifest;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -29,8 +31,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private static final int  uniqueID = 45612;
     private static final int SELECT_PHOTO = 100;
     long last_click = 0;
+    public final static int REQUEST_CODE = 10101;
+    String DEFAULT = "N/A";
+    String cronic;
+    String diab;
+    String b_p;
+    String name1;
+    String sex1;
+    String bloodgroup1;
+    String email1;
+    String contactNumber1;
+    String number1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -54,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getNotification();
                 Intent emergencyIntent = new Intent(MainActivity.this, EmergencyActActivity.class);
 emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
                 startActivity(emergencyIntent);
@@ -98,7 +115,75 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
                 startActivity(accountIntent);
             }
         });
+
+        if (checkDrawOverlayPermission()) {
+            startService(new Intent(this, PowerButtonService.class));
+        }
     }
+
+    private void getNotification()
+    {
+        getData2();
+        NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
+        bigTextStyle.setSummaryText("In Case Of Emergency");
+        bigTextStyle.setBigContentTitle("MEDICAL REPORT");
+        bigTextStyle.bigText("Safely :- " +
+                               name1 +
+             "                                          emergency contact number:-  "+ number1 +
+
+                "               Blood Group :-  "+bloodgroup1 +
+                "       BP Status:-  " + b_p +
+                "               Diabetes:-  " + diab +
+                "   Chornic Diseases:- "+cronic);
+        NotificationCompat.Builder notification;
+        notification = new NotificationCompat.Builder(this);
+        notification.setAutoCancel(false);
+        //build notification
+        notification.setSmallIcon(R.drawable.ic_letter);
+        notification.setTicker("emergency medical report");
+        notification.setContentTitle("User Medical_ID");
+        notification.setStyle(bigTextStyle);
+        notification.setPriority(NotificationCompat.PRIORITY_MAX);
+        Intent report = new Intent(MainActivity.this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this ,
+                0,report,PendingIntent.FLAG_UPDATE_CURRENT);
+        notification.setContentIntent(pendingIntent);
+        //issue notification
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        nm.notify(uniqueID,notification.build());
+    }
+
+    private void getData2()
+    {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        cronic = sharedPreferences.getString("chronic",DEFAULT);
+        diab = sharedPreferences.getString("diab",DEFAULT);
+        b_p= sharedPreferences.getString("bp",DEFAULT);
+        name1 = sharedPreferences.getString("name",DEFAULT);
+        email1 = sharedPreferences.getString("email",DEFAULT);
+        sex1 = sharedPreferences.getString("sex",DEFAULT);
+        bloodgroup1 = sharedPreferences.getString("blood",DEFAULT);
+        contactNumber1 = sharedPreferences.getString("contactnumber",DEFAULT);
+        number1 = sharedPreferences.getString("emergencycontactnumber",DEFAULT);
+    }
+
+    public boolean checkDrawOverlayPermission() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+        if (!Settings.canDrawOverlays(this)) {
+            /** if not construct intent to request permission */
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + getPackageName()));
+            /** request permission via start activity for result */
+            startActivityForResult(intent, REQUEST_CODE);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 
     public void ChooseImage(View v) {
         openGallery();
@@ -114,7 +199,13 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == SELECT_PHOTO && resultCode == RESULT_OK && null != data) {
+        if (requestCode == REQUEST_CODE) {
+            if (Settings.canDrawOverlays(this)) {
+                startService(new Intent(this, PowerButtonService.class));
+            }
+        }
+
+/**        if (requestCode == SELECT_PHOTO && resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
             String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
@@ -128,7 +219,7 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
 
             ImageView imageView = (ImageView) findViewById(R.id.imageButton);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-        }
+        }**/
     }
 
     @Override
@@ -223,19 +314,6 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
 
     }
 
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.KEYCODE_POWER) {
-            // Check if power button was pressed twice in last second
-            if ((System.currentTimeMillis() - last_click) <= 1000) {
-                // Make call if pressed twice
-                call();
-                return true;
-            }
-            last_click = System.currentTimeMillis();
-        }
-        return super.dispatchKeyEvent(event);
-    }
 
     public void call() {
         Intent callIntent = new Intent(Intent.ACTION_CALL);

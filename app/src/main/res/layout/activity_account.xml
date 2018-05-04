@@ -16,7 +16,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_profile_empty" />
+        app:srcCompat="@drawable/icon_profile_empty"
+        />
 
     <View
         android:id="@+id/view"
@@ -156,7 +157,7 @@
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="10dp"
         android:onClick="onLogout"
         android:text="@string/logout_label"
         android:textAllCaps="false"
@@ -165,5 +166,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+    <Button
+        android:id="@+id/edit_button"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:onClick="onEditDetails"
+        android:text="@string/edit_label"
+        android:textAllCaps="false"
+        android:textColor="@color/accountLogoutLabel"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
 
 </android.support.constraint.ConstraintLayout>

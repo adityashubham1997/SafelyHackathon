@@ -24,8 +24,7 @@ import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitCallback;
 import com.facebook.accountkit.AccountKitError;
 import com.facebook.accountkit.PhoneNumber;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -45,8 +44,8 @@ public class SignUpActivity extends AppCompatActivity {
     String email1;
 
 
-    private FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference mMessageDatabaseReference = mFirebaseDatabase.getReference().child("Safely_User_Data");
+
+//    SignUpActivity signup = new SignUpActivity();
     //private MessageAdapter mMessageAdapter;
 
 
@@ -188,10 +187,8 @@ public class SignUpActivity extends AppCompatActivity {
                 intent.putExtra("sex", sex.getSelectedItem().toString());
                 intent.putExtra("number", number);
                 setData();
+
                 startActivity(intent);
-                // TODO: Send data to database.
-                DatabaseStuff datainput1 = new DatabaseStuff(username.getText().toString(), email.getText().toString(), sex.getSelectedItem().toString(), blood_group.getSelectedItem().toString(), number, contactNumber);
-                mMessageDatabaseReference.push().setValue(datainput1);
 
 
             }
@@ -207,12 +204,16 @@ public class SignUpActivity extends AppCompatActivity {
         editor.putString("email",email.getText().toString());
         editor.putString("blood", blood_group.getSelectedItem().toString());
         editor.putString("sex", sex.getSelectedItem().toString());
+        editor.putString("contactnumber",contactNumber);
+        editor.putString("emergencycontactnumber",number);
+
 
         editor.commit();
 
         Toast.makeText(this,"Data was saved successfully",Toast.LENGTH_LONG).show();
 
     }
+
 
 
 }
