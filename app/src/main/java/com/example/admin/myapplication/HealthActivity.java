@@ -31,13 +31,13 @@ public class HealthActivity extends AppCompatActivity {
 
 
 getData();
-        disease.add(new List("Name", R.drawable.blood_pressure,name));
+        disease.add(new List("Name", R.drawable.icon_profile_empty,name));
         disease.add(new List("Emergency contact", R.drawable.contact,number1));
         disease.add(new List("Blood Group", R.drawable.blood_group,blood));
         disease.add(new List("Email", R.drawable.heart_rate,email));
         disease.add(new List("BP Status", R.drawable.blood_pressure,b_p));
         disease.add(new List("Diabetes", R.drawable.diabetes_monitor,diab));
-        disease.add(new List("Cronic diseases", R.drawable.heart_rate,cronic));
+        disease.add(new List("Cronic diseases", R.drawable.cronic,cronic));
 
         final ListAdapter listAdapter = new ListAdapter(this, disease);
 
