@@ -24,6 +24,11 @@ import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitCallback;
 import com.facebook.accountkit.AccountKitError;
 import com.facebook.accountkit.PhoneNumber;
+import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
+
+import java.util.Locale;
 
 
 public class SignUpActivity extends AppCompatActivity {
@@ -42,7 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
     String blood_group1;
     String sex1;
     String email1;
-
+    public static final String mypreference = "mypref";
 
 
 //    SignUpActivity signup = new SignUpActivity();
@@ -89,8 +94,32 @@ public class SignUpActivity extends AppCompatActivity {
             });
 
 
-        }
+        SharedPreferences sharedpreferences = getSharedPreferences(mypreference,
+                Context.MODE_PRIVATE);
+        if (sharedpreferences.contains(formatPhoneNumber("9455589493")))
+            launchEmergencyActivity();
 
+        }
+    private String formatPhoneNumber(String phoneNumber) {
+        // helper method to format the phone number for display
+        try {
+            PhoneNumberUtil pnu = PhoneNumberUtil.getInstance();
+            Phonenumber.PhoneNumber pn = pnu.parse(phoneNumber, Locale.getDefault().getCountry());
+            phoneNumber = pnu.format(pn, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
+        } catch (NumberParseException e) {
+            e.printStackTrace();
+        }
+        return phoneNumber.toString();
+    }
+
+    private void launchEmergencyActivity()
+    {
+        Intent intent1 = new Intent(SignUpActivity.this, com.example.admin.myapplication.Automatic.class);
+        Intent intent = new Intent(SignUpActivity.this, com.example.admin.myapplication.MainActivity.class);
+        startActivity(intent1);
+        startActivity(intent);
+        Toast.makeText(this,"initiated",Toast.LENGTH_LONG).show();
+    }
 
     public void onClickSelectContact(View btnSelectContact) {
         if (ActivityCompat.checkSelfPermission(SignUpActivity.this,

@@ -10,9 +10,10 @@ public class List {
     private String mPersonStatus;
     private int mImageResourceId;
 
-    public List(String diseaseName,int imageResourceId){
+    public List(String diseaseName,int imageResourceId, String personStatus){
         mDiseaseName=diseaseName;
         mImageResourceId = imageResourceId;
+        mPersonStatus=personStatus;
 
     }
 
@@ -24,5 +25,7 @@ public class List {
     public int getImageResourceId() {
         return mImageResourceId;
     }
-
+    public String getPersonStatus() {
+        return mPersonStatus;
+    }
 }
