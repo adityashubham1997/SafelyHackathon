@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ankankumar/Desktop/Safely-Road/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw320dp-v13/values-sw320dp-v13.xml",
+            "outputFile": "C:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw320dp-v13\\values-sw320dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/ankankumar/.gradle/caches/transforms-1/files-1.1/account-kit-sdk-4.32.0.aar/fe421ec2c88b4147228ec8ab1f761bae/res/values-sw320dp-v13/values-sw320dp-v13.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\account-kit-sdk-4.33.0.aar\\f5d5e8aa2e72c59ac39efd7d35a3574d\\res\\values-sw320dp-v13\\values-sw320dp-v13.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

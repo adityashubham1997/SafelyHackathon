@@ -1,4 +1,4 @@
-#Fri May 04 05:25:37 IST 2018
-base.0=/Users/ankankumar/Desktop/Safely-Road/app/build/intermediates/transforms/dexMerger/debug/142
+#Sun May 13 16:01:12 IST 2018
+base.0=C\:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\159
 path.0=classes.dex
 renamed.0=classes.dex

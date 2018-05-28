@@ -15,12 +15,18 @@ import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
+
+import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
 
     public static int APP_REQUEST_CODE = 1;
     public int count=0;
     int tempInt = 0;
+    public static final String mypreference = "mypref";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +34,33 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         FontHelper.setCustomTypeface(findViewById(R.id.view_root));
 
+
         // check for an existing access token
         AccessToken accessToken = AccountKit.getCurrentAccessToken();
         if (accessToken != null) {
             launchEmergencyActivity();
         }
     }
+    private String formatPhoneNumber(String phoneNumber) {
+        // helper method to format the phone number for display
+        try {
+            PhoneNumberUtil pnu = PhoneNumberUtil.getInstance();
+            Phonenumber.PhoneNumber pn = pnu.parse(phoneNumber, Locale.getDefault().getCountry());
+            phoneNumber = pnu.format(pn, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
+        } catch (NumberParseException e) {
+            e.printStackTrace();
+        }
+        return phoneNumber.toString();
+    }
+
 
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        //SharedPreferences sharedpreferences = getSharedPreferences(mypreference,
+          //      Context.MODE_PRIVATE);
+        //if (sharedpreferences.contains("09455589493"))
+          //  launchEmergencyActivity();
         // confirm that this response matches your request
         if (requestCode == APP_REQUEST_CODE) {
             AccountKitLoginResult loginResult = data.getParcelableExtra(AccountKitLoginResult.RESULT_KEY);
@@ -49,6 +71,8 @@ public class LoginActivity extends AppCompatActivity {
             } else if (loginResult.getAccessToken() != null) {
                 count = readSharedPreferenceInt("cntSP","cntKey");
                 if(count>=0){
+
+
                     Intent intent = new Intent();
                     intent.setClass(LoginActivity.this, SignUpActivity.class);
                     startActivity(intent);
@@ -92,11 +116,17 @@ public class LoginActivity extends AppCompatActivity {
 
         onLogin(LoginType.PHONE);
     }
+
+
     //Read from Shared Preferance
     public int readSharedPreferenceInt(String spName,String key){
+
         SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
         return tempInt = sharedPreferences.getInt(key, 0);
+
+
     }
+
 
     //write shared preferences in integer
     public void writeSharedPreference(int amount,String spName,String key ){

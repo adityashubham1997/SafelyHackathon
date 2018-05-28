@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.net.Uri;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
@@ -67,19 +68,36 @@ String phone;
 
         View mView = LayoutInflater.from(this).inflate(R.layout.service_activity, mLinear);
         WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
-
+        if (Build.VERSION.SDK_INT > 25) {
         //params
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 100,
                 100,
-                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
+
+
+                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
-                        | WindowManager.LayoutParams.FLAG_FULLSCREEN
-                        | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                        | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
-                PixelFormat.TRANSLUCENT);
+                        , PixelFormat.TRANSLUCENT);
+
         params.gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
         wm.addView(mView, params);
+    }
+
+    else{
+            //params
+            WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+                    100,
+                    100,
+
+
+                    WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                    , PixelFormat.TRANSLUCENT);
+
+            params.gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
+            wm.addView(mView, params);
+        }
+
     }
 
     private void getData2()

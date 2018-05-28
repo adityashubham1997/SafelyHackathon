@@ -2,12 +2,14 @@ package com.example.admin.myapplication;
 
 
 import android.Manifest;
+import android.app.ActivityOptions;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
@@ -16,6 +18,7 @@ import android.provider.Settings;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -84,7 +87,13 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
             public void onClick(View view) {
 
                 Intent healthIntent = new Intent(MainActivity.this, HealthActivity.class);
-
+                healthIntent.putExtra("name", getIntent().getStringExtra("name"));
+                healthIntent.putExtra("email", getIntent().getStringExtra("email"));
+                healthIntent.putExtra("blood", getIntent().getStringExtra("blood"));
+                healthIntent.putExtra("sex", getIntent().getStringExtra("sex"));
+                healthIntent.putExtra("number", getIntent().getStringExtra("number"));
+                healthIntent.putExtra("diab",diab);
+                healthIntent.putExtra("cronic",cronic);
                 startActivity(healthIntent);
             }
         });
@@ -112,7 +121,11 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
                 accountIntent.putExtra("blood", getIntent().getStringExtra("blood"));
                 accountIntent.putExtra("sex", getIntent().getStringExtra("sex"));
                 accountIntent.putExtra("number", getIntent().getStringExtra("number"));
-                startActivity(accountIntent);
+
+
+
+                startActivity(accountIntent, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
+
             }
         });
 
@@ -126,22 +139,34 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
         getData2();
         NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
         bigTextStyle.setSummaryText("In Case Of Emergency");
-        bigTextStyle.setBigContentTitle("MEDICAL REPORT");
-        bigTextStyle.bigText("Safely :- " +
-                               name1 +
-             "                                          emergency contact number:-  "+ number1 +
+        bigTextStyle.setBigContentTitle("Medical Report");
 
-                "               Blood Group :-  "+bloodgroup1 +
-                "       BP Status:-  " + b_p +
-                "               Diabetes:-  " + diab +
-                "   Chornic Diseases:- "+cronic);
+        if (cronic==""){
+            bigTextStyle.bigText("Name :- " + name1+"\n" +
+                    "Emergency contact:- "+ number1 +"\n"+
+                    "Blood Group :-  "+bloodgroup1 +"\n"+
+                    "BP Status:-  " + b_p +"\n"+
+                    "Diabetes:-  " + diab +"\n"+
+                    "Chornic Diseases:- "+"None");
+        }
+        else {
+            bigTextStyle.bigText("Safely :- " + name1+"\n" +
+                    "Emergency contact number:- "+ number1 +"\n"+
+                    "Blood Group :-  "+bloodgroup1 +"\n"+
+                    "BP Status:-  " + b_p +"\n"+
+                    "Diabetes:-  " + diab +"\n"+
+                    "Chornic Diseases:- "+cronic);
+        }
+
         NotificationCompat.Builder notification;
         notification = new NotificationCompat.Builder(this);
         notification.setAutoCancel(false);
         //build notification
         notification.setSmallIcon(R.drawable.ic_letter);
-        notification.setTicker("emergency medical report");
-        notification.setContentTitle("User Medical_ID");
+        notification.setColor(ContextCompat.getColor(this, R.color.nColor));
+        notification.setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.mipmap.safely));
+        notification.setTicker("Emergency medical report");
+        notification.setContentTitle("User Medical ID");
         notification.setStyle(bigTextStyle);
         notification.setPriority(NotificationCompat.PRIORITY_MAX);
         Intent report = new Intent(MainActivity.this, MainActivity.class);
@@ -151,6 +176,7 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
         //issue notification
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         nm.notify(uniqueID,notification.build());
+
     }
 
     private void getData2()
@@ -289,6 +315,7 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
         } else {
             super.onBackPressed();
         }
+        finish();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -298,13 +325,29 @@ emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            //This is main menu
+        } else if (id == R.id.nav_gallery) {
             Intent intent = new Intent(MainActivity.this, com.example.admin.myapplication.StepsActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_gallery) {
         } else if (id == R.id.nav_slideshow) {
-        } else if (id == R.id.nav_manage) {
-        } else if (id == R.id.nav_share) {
-        } else if (id == R.id.nav_send) {
+            // Create a Uri from an intent string. Use the result to create an Intent.
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=hospitals");
+
+            // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            // Make the Intent explicit by setting the Google Maps package
+            mapIntent.setPackage("com.google.android.apps.maps");
+
+            // Attempt to start an activity that can handle the Intent
+            startActivity(mapIntent);
+        } else if (id==R.id.nav_about) {
+            //TODO:add about
+        }else if (id==R.id.nav_account) {
+            Intent intent= new Intent(MainActivity.this,AccountActivity.class);
+            startActivity(intent);
+        }else if (id==R.id.nav_health){
+            Intent intent=new Intent(MainActivity.this,HealthActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

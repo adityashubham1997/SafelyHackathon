@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ankankumar/Desktop/Safely-Road/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "C:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "/Users/ankankumar/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.8.0.aar/305dcc0043a0ffe19b95c8b842bb8efd/res/values-watch-v20/values.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-auth-11.8.0.aar\\ecc408c3923827ecd6f829fec54de3d3\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",

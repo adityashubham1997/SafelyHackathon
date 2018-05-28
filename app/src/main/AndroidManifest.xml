@@ -14,13 +14,13 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
     <application
         android:allowBackup="false"
-        android:icon="@mipmap/safely2"
+        android:icon="@mipmap/safely"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -87,16 +87,15 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LocActivity" />
         <activity android:name=".SignUp2Activity" />
-        <activity android:name=".PowerButtonService"/>
-        <activity android:name=".Automatic"/>
-
+        <activity android:name=".PowerButtonService" />
+        <activity android:name=".Automatic" />
 
         <service
             android:name=".PowerButtonService"
             android:enabled="true"
-            android:exported="true">
-        </service>
+            android:exported="true"></service>
 
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>

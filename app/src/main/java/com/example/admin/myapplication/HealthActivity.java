@@ -1,13 +1,9 @@
 package com.example.admin.myapplication;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,12 +18,15 @@ public class HealthActivity extends AppCompatActivity {
         v =(TextView) findViewById(R.id.version_number);
         final ArrayList<com.example.admin.myapplication.List> disease = new ArrayList<com.example.admin.myapplication.List>();
 
-        disease.add(new List("BP", R.drawable.blood_pressure));
-        disease.add(new List("Sugar Level(before meal)", R.drawable.sugar));
-        disease.add(new List("Sugar Level(after meal)", R.drawable.sugar1));
-        disease.add(new List("Pulse Rate", R.drawable.heart_rate));
-        disease.add(new List("Heart Rate", R.drawable.heart_rate));
 
+String name=getIntent().getStringExtra("name");
+        disease.add(new List("Name", R.drawable.blood_pressure,""+name));
+        disease.add(new List("Emergency contact", R.drawable.contact,getIntent().getStringExtra("number")));
+        disease.add(new List("Blood Group", R.drawable.blood_group,getIntent().getStringExtra("blood")));
+        disease.add(new List("Email", R.drawable.heart_rate,getIntent().getStringExtra("email")));
+        disease.add(new List("BP Status", R.drawable.blood_pressure,getIntent().getStringExtra("blood")));
+        disease.add(new List("Diabetes", R.drawable.diabetes_monitor,getIntent().getStringExtra("diab")));
+        disease.add(new List("Cronic diseases", R.drawable.heart_rate,getIntent().getStringExtra("cronic")));
 
         final ListAdapter listAdapter = new ListAdapter(this, disease);
 
@@ -39,34 +38,10 @@ public class HealthActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 List word = disease.get(position);
-open(view);
+;
                 }
 
     });
 }
-    public void open(final View view){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Value");
 
-        // Set an EditText view to get user input
-        final EditText input = new EditText(this);
-input.setInputType(InputType.TYPE_CLASS_NUMBER);
-        alertDialogBuilder.setView(input);
-        alertDialogBuilder.setPositiveButton("yes",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        ((TextView)(view.findViewById(R.id.version_number))).setText(input.getText().toString());
-                    }
-                });
-
-        alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
-}}
+}

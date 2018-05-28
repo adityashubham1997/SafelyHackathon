@@ -5,32 +5,37 @@
         <item
             android:id="@+id/nav_camera"
 
-            android:title="Steps" />
+            android:title="Home" />
         <item
             android:id="@+id/nav_gallery"
 
-            android:title="Gallery" />
+            android:title="Steps" />
         <item
             android:id="@+id/nav_slideshow"
 
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
+            android:title="Nearby Hospitals" />
 
-            android:title="Tools" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Others">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_about"
 
-                android:title="Share" />
+                android:title="About" />
+
+
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_account"
 
-                android:title="Send" />
+                android:title="My account" />
+
+            <item
+                android:id="@+id/nav_health"
+
+                android:title="My Health" />
         </menu>
     </item>
-
 </menu>
+
+

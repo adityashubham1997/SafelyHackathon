@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ankankumar/Desktop/Safely-Road/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-my-rMM/values-my-rMM.xml",
+            "outputFile": "C:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my-rMM\\values-my-rMM.xml",
             "map": [
                 {
-                    "source": "/Users/ankankumar/.gradle/caches/transforms-1/files-1.1/account-kit-sdk-4.32.0.aar/fe421ec2c88b4147228ec8ab1f761bae/res/values-my-rMM/values-my-rMM.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\account-kit-sdk-4.33.0.aar\\f5d5e8aa2e72c59ac39efd7d35a3574d\\res\\values-my-rMM\\values-my-rMM.xml",
                     "from": {
                         "startLines": "2,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,266,272,279,287,294,300,301,302,305,306,307,310,311,312,313,314,315,316,317,318,319,320,321,324,325,326,327,328,329,330,331,334,335",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

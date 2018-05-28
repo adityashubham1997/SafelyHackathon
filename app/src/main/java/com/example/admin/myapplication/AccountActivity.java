@@ -80,6 +80,7 @@ nameText=(TextView)findViewById(R.id.NameText);
 
     private void getData()
     {
+
         SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         name = sharedPreferences.getString("name",DEFAULT);
         blood = sharedPreferences.getString("blood",DEFAULT);
@@ -88,6 +89,7 @@ nameText=(TextView)findViewById(R.id.NameText);
 
 
     }
+
 
     public void onLogout(View view) {
         // logout of Account Kit

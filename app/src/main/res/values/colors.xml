@@ -8,7 +8,7 @@
     <color name="accountLabel">#7d97ad</color>
     <color name="accountText">#61727f</color>
     <color name="accountLogoutLabel">#fc6240</color>
-
+    <color name="nColor">#e54304</color>
     <color name="ak_background">#d5f0ec</color>
     <color name="ak_text">#61727f</color>
     <color name="ak_buttonBackground">#3F51B5</color>

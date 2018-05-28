@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ankankumar/Desktop/Safely-Road/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
+            "outputFile": "C:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/ankankumar/.gradle/caches/transforms-1/files-1.1/account-kit-sdk-4.32.0.aar/fe421ec2c88b4147228ec8ab1f761bae/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\account-kit-sdk-4.33.0.aar\\f5d5e8aa2e72c59ac39efd7d35a3574d\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,5,8,11",
                         "startColumns": "4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ankankumar/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/3dfff50c0e0fc098145fffd217548335/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\c0a80f14ceb71038037bde1b37d16190\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -34,7 +34,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ankankumar/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.2.aar/b78559eb489e26f7d8dc01b0b93922ab/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\0f4061365f8bd3e9c63b9439e30100d3\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

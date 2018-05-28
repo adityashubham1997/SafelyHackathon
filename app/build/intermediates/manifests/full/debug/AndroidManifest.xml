@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="15"
+        android:minSdkVersion="22"
         android:targetSdkVersion="26" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -36,12 +36,12 @@
     <uses-permission android:name="com.example.admin.myapplication.permission.C2D_MESSAGE" />
 
     <application
-        android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="false"
         android:debuggable="true"
-        android:icon="@mipmap/safely2"
+        android:icon="@mipmap/safely"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <meta-data
             android:name="com.facebook.accountkit.ApplicationName"
@@ -117,9 +117,9 @@
         <service
             android:name="com.example.admin.myapplication.PowerButtonService"
             android:enabled="true"
-            android:exported="true" >
-        </service>
+            android:exported="true" />
 
+        <activity android:name="com.example.admin.myapplication.AboutActivity" />
         <!--
              The initialization ContentProvider will call AccountKit.initialize automatically
              with the application context. This config is merged in with the host app's manifest,
@@ -152,6 +152,14 @@
             android:name="com.facebook.internal.FacebookInitProvider"
             android:authorities="com.example.admin.myapplication.FacebookInitProvider"
             android:exported="false" />
+
+        <receiver
+            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"

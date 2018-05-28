@@ -82,6 +82,12 @@ public class ListAdapter extends ArrayAdapter<List> {
 
         iconView.setImageResource(currentAndroidFlavor.getImageResourceId());
 
+        // Find the TextView in the list_item.xml layout with the ID version_name
+        TextView statusView = (TextView) listItemView.findViewById(R.id.version_number);
+        // Get the version name from the current AndroidFlavor object and
+        // set this text on the name TextView
+        statusView.setText(currentAndroidFlavor.getPersonStatus());
+
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView
         return listItemView;
