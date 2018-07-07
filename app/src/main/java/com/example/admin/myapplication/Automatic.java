@@ -1,6 +1,7 @@
 package com.example.admin.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
@@ -13,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -27,6 +29,7 @@ import android.widget.TextView;
         public double acc, threshold;
         String phone;
         String DEFAULT = "N/A";
+        int j=0;
 
         TextView xValue, yValue, zValue, xGyroValue, yGyroValue, zGyroValue, xMagnoValue, yMagnoValue, zMagnoValue, light, temp, pressure, humi, acceleration;
 
@@ -53,6 +56,8 @@ import android.widget.TextView;
             pressure = (TextView)findViewById(R.id.pressure);
             humi = (TextView)findViewById(R.id.humi);
             acceleration = (TextView)findViewById(R.id.acceleration);
+
+            //Movetasktoback(true);
 
 
             Log.d(TAG, "onCreate: Initializing Sensor Services");
@@ -129,14 +134,33 @@ import android.widget.TextView;
                 humi.setText("Humidity sensor is not supported");
             }
 
+
         }
+        //@Nullable
+        //@Override
+        //public IBinder onBind(Intent intent)
+        //{
+         //return null;
+        //}
 
         @Override
         public void onAccuracyChanged(Sensor sensor, int i) {
 
         }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
+    public void backToMain(View view)
+    {
+        Intent intent = new Intent(this, com.example.admin.myapplication.MainActivity.class);
+        startActivity(intent);
+        //finish();
+    }
 
-        @Override
+
+
+    @Override
         public void onSensorChanged(SensorEvent sensorEvent) {
 
 
@@ -148,12 +172,13 @@ import android.widget.TextView;
                 zValue.setText("zValue: "+sensorEvent.values[2]);
                 acc = Math.sqrt((sensorEvent.values[0]*sensorEvent.values[0])+ (sensorEvent.values[1]*sensorEvent.values[1])+ (sensorEvent.values[2]*sensorEvent.values[2]));
                 acc = acc/(9.8);
-                threshold = 30;
+                threshold = 1.5;
                 acceleration.setText("acceleration: " +acc + "G"
                 );
-                if (acc>=threshold)
+                if (j<=2 && acc>=threshold)
                 {
                     getdata3();
+                    j++;
                     Uri uri=Uri.parse("Hey, I am in trouble at http://maps.google.com/?q=");
                     SmsManager smsManager = SmsManager.getDefault();
                     smsManager.sendTextMessage(phone, null, uri.toString(), null, null);

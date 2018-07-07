@@ -1,21 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "C:\\Users\\Aditya\\Desktop\\Safely-Roads\\Safely-Roads\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\account-kit-sdk-4.33.0.aar\\f5d5e8aa2e72c59ac39efd7d35a3574d\\res\\values-v23\\values-v23.xml",
-                    "from": {
-                        "startLines": "2,5,8,11",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,208,353,488",
-                        "endLines": "4,7,10,13",
-                        "endColumns": "12,12,12,12",
-                        "endOffsets": "203,348,483,628"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\c0a80f14ceb71038037bde1b37d16190\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Aditya\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\1d0f64dc49d97e4315811848d8237a92\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -34,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\0f4061365f8bd3e9c63b9439e30100d3\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Aditya\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-27.0.2.aar\\fd70938c98f7177c15ea6141c3f850b2\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -50,6 +39,17 @@
                         "endLines": "51",
                         "endColumns": "12",
                         "endOffsets": "3369"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Aditya\\.gradle\\caches\\transforms-1\\files-1.1\\account-kit-sdk-4.34.0.aar\\f2f7dcedae247fc77605323db00bd0dc\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,8,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,208,353,488",
+                        "endLines": "4,7,10,13",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "203,348,483,628"
                     }
                 }
             ]

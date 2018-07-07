@@ -1,4 +1,4 @@
-#Sun May 13 16:01:10 IST 2018
-base.0=C\:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\153
+#Sun Jul 08 04:24:41 IST 2018
+base.0=C\:\\Users\\Aditya\\Desktop\\Safely-Roads\\Safely-Roads\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

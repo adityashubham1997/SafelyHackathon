@@ -47,6 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
     String blood_group1;
     String sex1;
     String email1;
+
     public static final String mypreference = "mypref";
 
 
@@ -60,6 +61,12 @@ public class SignUpActivity extends AppCompatActivity {
             setContentView(R.layout.activity_sign_up);
             username = (EditText) findViewById(R.id.username);
             email = (EditText) findViewById(R.id.email);
+
+
+            ActivityCompat.requestPermissions(SignUpActivity.this, new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.SEND_SMS, Manifest.permission.CALL_PHONE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+
+
+
             //contactNumber = account.userNumber.toString();
 
             //get the spinner from the xml.
@@ -114,9 +121,9 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void launchEmergencyActivity()
     {
-        Intent intent1 = new Intent(SignUpActivity.this, com.example.admin.myapplication.Automatic.class);
+        //Intent intent1 = new Intent(SignUpActivity.this, com.example.admin.myapplication.Automatic.class);
         Intent intent = new Intent(SignUpActivity.this, com.example.admin.myapplication.MainActivity.class);
-        startActivity(intent1);
+        //startActivity(intent1);
         startActivity(intent);
         Toast.makeText(this,"initiated",Toast.LENGTH_LONG).show();
     }
@@ -225,6 +232,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+    public void permission(){
+
+
+    }
+
     private void setData()
     {
         SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
@@ -235,7 +247,6 @@ public class SignUpActivity extends AppCompatActivity {
         editor.putString("sex", sex.getSelectedItem().toString());
         editor.putString("contactnumber",contactNumber);
         editor.putString("emergencycontactnumber",number);
-
 
         editor.commit();
 

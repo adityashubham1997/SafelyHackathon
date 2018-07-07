@@ -13,11 +13,47 @@
         android:orientation="vertical"
         android:background="@drawable/signup_bg"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         >
+        <TextView
+            android:id="@+id/Bhmhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bhamashah ID"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="16dp"
+            android:textColor="#424242"/>
+        <EditText
+            android:id="@+id/bhm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColorHighlight="#0277BD"
+            android:maxLines="1"
+            android:hint="eg: 1234"/>
+        <TextView
+            android:id="@+id/colHead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Institution/Office"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="16dp"
+            android:textColor="#424242"/>
+        <EditText
+            android:id="@+id/institution_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColorHighlight="#0277BD"
+            android:maxLines="1"
+            android:hint="eg: Manipal"/>
         <TextView
             android:id="@+id/blood_pressure"
             android:layout_width="match_parent"

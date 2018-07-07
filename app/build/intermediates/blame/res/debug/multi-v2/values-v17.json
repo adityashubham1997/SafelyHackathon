@@ -1,21 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v17\\values-v17.xml",
+            "outputFile": "C:\\Users\\Aditya\\Desktop\\Safely-Roads\\Safely-Roads\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v17\\values-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\account-kit-sdk-4.33.0.aar\\f5d5e8aa2e72c59ac39efd7d35a3574d\\res\\values-v17\\values-v17.xml",
-                    "from": {
-                        "startLines": "2,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,669",
-                        "endLines": "13,17",
-                        "endColumns": "12,12",
-                        "endOffsets": "664,942"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\c0a80f14ceb71038037bde1b37d16190\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\Aditya\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\1d0f64dc49d97e4315811848d8237a92\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,26,29,32,35,39,42,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -31,6 +20,17 @@
                         "endLines": "20,24,27,30,33,37,41,44,47,50,54,57,61,65",
                         "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12",
                         "endOffsets": "1115,1343,1501,1651,1823,2051,2293,2464,2638,2807,3080,3280,3484,3813"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Aditya\\.gradle\\caches\\transforms-1\\files-1.1\\account-kit-sdk-4.34.0.aar\\f2f7dcedae247fc77605323db00bd0dc\\res\\values-v17\\values-v17.xml",
+                    "from": {
+                        "startLines": "2,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,669",
+                        "endLines": "13,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "664,942"
                     }
                 }
             ]

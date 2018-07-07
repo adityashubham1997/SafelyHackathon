@@ -1,15 +1,23 @@
 #Internal package file, do not edit.
-#Tue May 22 11:09:14 IST 2018
-1.base=C\:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\163
-2.path=classes.dex
-0.baseType=DIRECTORY
-2.base=C\:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\169
-2.set=DEX
-1.baseType=DIRECTORY
-count=3
-1.set=DEX
-0.path=fonts/avenir-black.ttf
-0.set=ASSET
-0.base=C\:\\Users\\admin\\Desktop\\Safely-Road\\app\\build\\intermediates\\assets\\debug
+#Sun Jul 08 04:24:42 IST 2018
+2.base=C\:\\Users\\Aditya\\Desktop\\Safely-Roads\\Safely-Roads\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
+0.path=classes.dex
 2.baseType=DIRECTORY
+3.base=C\:\\Users\\Aditya\\Desktop\\Safely-Roads\\Safely-Roads\\app\\build\\intermediates\\assets\\debug
+2.set=DEX
 1.path=classes.dex
+4.base=C\:\\Users\\Aditya\\Desktop\\Safely-Roads\\Safely-Roads\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
+count=5
+2.path=classes.dex
+4.set=DEX
+3.path=fonts/avenir-black.ttf
+3.baseType=DIRECTORY
+1.set=DEX
+4.path=classes.dex
+1.baseType=DIRECTORY
+0.base=C\:\\Users\\Aditya\\Desktop\\Safely-Roads\\Safely-Roads\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
+0.baseType=DIRECTORY
+3.set=ASSET
+1.base=C\:\\Users\\Aditya\\Desktop\\Safely-Roads\\Safely-Roads\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
+4.baseType=DIRECTORY
+0.set=DEX

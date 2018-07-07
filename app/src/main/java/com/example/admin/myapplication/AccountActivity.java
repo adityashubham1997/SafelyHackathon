@@ -1,10 +1,12 @@
 package com.example.admin.myapplication;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -15,6 +17,9 @@ import com.facebook.accountkit.AccountKit;
 import com.facebook.accountkit.AccountKitCallback;
 import com.facebook.accountkit.AccountKitError;
 import com.facebook.accountkit.PhoneNumber;
+import com.facebook.accountkit.ui.AccountKitActivity;
+import com.facebook.accountkit.ui.AccountKitConfiguration;
+import com.facebook.accountkit.ui.LoginType;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
@@ -41,7 +46,15 @@ public class AccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account);
         com.example.admin.myapplication.FontHelper.setCustomTypeface(findViewById(R.id.view_root));
 
+        ActivityCompat.requestPermissions(AccountActivity.this, new String[]{Manifest.permission.RECEIVE_SMS, Manifest.permission.READ_SMS},1);
 
+        AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder =
+                new AccountKitConfiguration.AccountKitConfigurationBuilder(LoginType.PHONE
+                        , AccountKitActivity.ResponseType.TOKEN);
+
+        // Add these code
+        configurationBuilder.setReadPhoneStateEnabled(true);
+        configurationBuilder.setReceiveSMS(true);
         id = (TextView) findViewById(R.id.id);
         infoLabel = (TextView) findViewById(R.id.info_label);
         info = (TextView) findViewById(R.id.info);
@@ -106,6 +119,12 @@ nameText=(TextView)findViewById(R.id.NameText);
         Intent intent = new Intent(this, com.example.admin.myapplication.LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+    public void launchAutomatic(View view)
+    {
+        Intent intent = new Intent(this, com.example.admin.myapplication.Automatic.class);
+        startActivity(intent);
+        //finish();
     }
 
     private String formatPhoneNumber(String phoneNumber) {

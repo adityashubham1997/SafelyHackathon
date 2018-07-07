@@ -29,6 +29,10 @@ public class SignUp2Activity extends AppCompatActivity {
     String sex1;
     String contactNumber1;
     String number1;
+    String bhamashah_id2;
+    String institution;
+    EditText bhahmashah_id;
+    EditText institution1;
 //    SignUp2Activity signUp2Activity = new SignUp2Activity();
     private FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mMessageDatabaseReference = mFirebaseDatabase.getReference().child("Safely_User_Data");
@@ -43,6 +47,10 @@ public class SignUp2Activity extends AppCompatActivity {
         //get the spinner from the xml.
         dropdown = (Spinner) findViewById(R.id.confirm);
         chronic = (EditText)findViewById(R.id.chronic);
+        bhahmashah_id=(EditText) findViewById(R.id.bhm);
+        institution1= findViewById(R.id.institution_id);
+        bhamashah_id2="12345678";
+        institution="Manipal";
 //create a list of items for the spinner.
         String[] items = new String[]{"Yes", "No"};
         String[] items1 = new String[]{"High","Low","Normal"};
@@ -69,7 +77,7 @@ public class SignUp2Activity extends AppCompatActivity {
                 getData1();
                 startActivity(intent);
                 // TODO: Send data to database.
-                DatabaseStuff datainput1 = new DatabaseStuff(name1, email1, sex1, bloodgroup1, number1, contactNumber1,diab,b_p,cronic);
+                DatabaseStuff datainput1 = new DatabaseStuff(name1, email1, sex1, bloodgroup1, number1, contactNumber1,diab,b_p,cronic,bhamashah_id2,institution);
                 mMessageDatabaseReference.push().setValue(datainput1);
 
             }
@@ -101,6 +109,7 @@ public class SignUp2Activity extends AppCompatActivity {
         bloodgroup1 = sharedPreferences.getString("blood",DEFAULT);
         contactNumber1 = sharedPreferences.getString("contactnumber",DEFAULT);
         number1 = sharedPreferences.getString("emergencycontactnumber",DEFAULT);
+
     }
 
 }

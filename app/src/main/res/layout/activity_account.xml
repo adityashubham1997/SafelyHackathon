@@ -19,11 +19,12 @@
         app:srcCompat="@drawable/icon_profile_empty"
         />
 
-    <View
+    <LinearLayout
         android:id="@+id/view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="48dp"
+        android:orientation="vertical"
         android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -152,34 +153,53 @@
         app:layout_constraintLeft_toRightOf="@+id/gender"
         app:layout_constraintBottom_toBottomOf="@id/gender"
         />
+
     <Button
         android:id="@+id/logout_button"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:onClick="onLogout"
         android:text="@string/logout_label"
         android:textAllCaps="false"
         android:textColor="@color/accountLogoutLabel"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+
     <Button
         android:id="@+id/edit_button"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
         android:onClick="onEditDetails"
         android:text="@string/edit_label"
         android:textAllCaps="false"
         android:textColor="@color/accountLogoutLabel"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/automatic"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="launchAutomatic"
+        android:text="Enable automatic"
+        android:textAllCaps="false"
+        android:textColor="@color/accountLogoutLabel"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 
 
 

@@ -13,8 +13,10 @@ public class DatabaseStuff {
     private String Diabetes_Condition;
     private String B_P_Condition;
     private String Chronic_Diseases;
+    private String Bhamashah_ID;
+    private String Institution_Name;
 
-    public DatabaseStuff(String name, String email, String sex,String blood_group,String Emergency_Contact_number, String Contact_number_user,String Diabetes_Condition,String B_P_Condition,String Chronic_Diseases ) {
+    public DatabaseStuff(String name, String email, String sex,String blood_group,String Emergency_Contact_number, String Contact_number_user,String Diabetes_Condition,String B_P_Condition,String Chronic_Diseases,String Bhahmashah_ID,String Institution_Name ) {
         this.email = email;
         this.name = name;
         this.sex = sex;
@@ -24,6 +26,8 @@ public class DatabaseStuff {
         this.Diabetes_Condition = Diabetes_Condition;
         this.B_P_Condition = B_P_Condition;
         this.Chronic_Diseases =Chronic_Diseases;
+        this.Bhamashah_ID= Bhahmashah_ID;
+        this.Institution_Name=Institution_Name;
     }
 
     public String getName() {
@@ -89,6 +93,19 @@ public class DatabaseStuff {
     }
     public void setChronic_Diseases(String name) {
         this.Chronic_Diseases = name;
+    }
+
+    public String getBhamashah_ID() {
+        return Bhamashah_ID;
+    }
+    public void setBhamashah_ID(String name) {
+        this.Bhamashah_ID = name;
+    }
+    public String getInstituiton_Name() {
+        return Institution_Name;
+    }
+    public void setInstitution_Name(String name) {
+        this.Institution_Name= name;
     }
 }
 
